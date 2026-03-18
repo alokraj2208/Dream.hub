@@ -1,1 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Dream Hub</title>
 
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: linear-gradient(135deg,#141e30,#243b55);
+    color: white;
+    text-align: center;
+}
+
+header {
+    padding: 15px;
+    font-size: 25px;
+    background: rgba(0,0,0,0.5);
+}
+
+.container {
+    padding: 20px;
+}
+
+.card {
+    display: inline-block;
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    margin: 10px;
+    border-radius: 15px;
+    width: 220px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.1);
+    background: rgba(255,255,255,0.2);
+}
+
+button {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background: #00c6ff;
+    color: white;
+    cursor: pointer;
+}
+
+input {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    border: none;
+}
+
+.hidden { display:none; }
+</style>
+
+<script>
+function showPage(id){
+let pages=document.getElementsByClassName("page");
+for(let i=0;i<pages.length;i++){pages[i].style.display="none";}
+document.getElementById(id).style.display="block";
+}
+
+// AI Suggestion
+function suggestCareer(){
+let i=interest.value.toLowerCase();
+let g=goal.value.toLowerCase();
+let r="";
+
+if(i.includes("math")) r="👉 Engineering / Polytechnic best option";
+else if(i.includes("bio")) r="👉 NEET / Paramedical best option";
+else if(i.includes("business")) r="👉 Commerce / CA best option";
+else r="👉 Explore multiple options";
+
+result.innerText=r;
+}
+</script>
+
+</head>
+
+<body>
+
+<header>🚀 Dream Hub</header>
+
+<!-- HOME -->
+<div id="home" class="container page">
+<h2>Select Stream</h2>
+
+<div class="card" onclick="showPage('science')">Science</div>
+<div class="card" onclick="showPage('commerce')">Commerce</div>
+<div class="card" onclick="showPage('arts')">Arts</div>
+
+<h2>🤖 AI Career Suggestion</h2>
+<input id="interest" placeholder="Interest (math/bio)">
+<input id="goal" placeholder="Goal (engineer/doctor)">
+<br><button onclick="suggestCareer()">Suggest</button>
+<p id="result"></p>
+
+</div>
+
+<!-- SCIENCE -->
+<div id="science" class="container page hidden">
+<h2>Science</h2>
+
+<div class="card" onclick="showPage('maths')">Maths</div>
+<div class="card" onclick="showPage('bio')">Biology</div>
+
+<br><button onclick="showPage('home')">Back</button>
+</div>
+
+<!-- MATHS -->
+<div id="maths" class="container page hidden">
+<h2>Maths Career</h2>
+
+<p>✔ Polytechnic → Diploma → Engineer</p>
+<p>✔ JEE → IIT/NIT</p>
+<p>✔ Railway Jobs</p>
+
+<br><button onclick="showPage('science')">Back</button>
+</div>
+
+<!-- BIOLOGY -->
+<div id="bio" class="container page hidden">
+<h2>Biology Career</h2>
+
+<p>✔ NEET → Doctor (MBBS/BDS)</p>
+<p>✔ Paramedical → Lab Technician</p>
+
+<br><button onclick="showPage('science')">Back</button>
+</div>
+
+<!-- COMMERCE -->
+<div id="commerce" class="container page hidden">
+<h2>Commerce</h2>
+
+<p>CA, BBA, Banking, Business</p>
+
+<br><button onclick="showPage('home')">Back</button>
+</div>
+
+<!-- ARTS -->
+<div id="arts" class="container page hidden">
+<h2>Arts</h2>
+
+<div class="card" onclick="showPage('bed')">B.Ed (Teacher)</div>
+
+<p>UPSC, Law, Teacher</p>
+
+<br><button onclick="showPage('home')">Back</button>
+</div>
+
+<!-- BED -->
+<div id="bed" class="container page hidden">
+<h2>B.Ed Details</h2>
+
+<p>Duration: 2 Years</p>
+<p>Eligibility: Graduation</p>
+<p>Career: Teacher</p>
+
+<br><button onclick="showPage('arts')">Back</button>
+</div>
+
+</body>
+</html>
