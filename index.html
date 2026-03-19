@@ -172,8 +172,27 @@ result.innerText=r;
 </div>
 <!-- Firebase -->
 <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
 
-    
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyDo_YknKGKd-_k__as0kgyJCsmGypBv0h8",
+    authDomain: "dreamhub-7054a.firebaseapp.com",
+    projectId: "dreamhub-7054a",
+    storageBucket: "dreamhub-7054a.firebasestorage.app",
+    messagingSenderId: "956570093732",
+    appId: "1:956570093732:web:3946f80f69fe82ff84fe31",
+    measurementId: "G-FSZBMDXFEV"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
 </script>
 </body>
 </html>
