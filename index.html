@@ -193,6 +193,41 @@ result.innerText=r;
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } 
+from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+const auth = getAuth(app);
+
+// REGISTER
+function register() {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  createUserWithEmailAndPassword(auth, email, password)
+    .then(() => {
+      alert("Account Created ✅");
+    })
+    .catch((error) => {
+      alert(error.message);
+    });
+}
+
+// LOGIN
+function login() {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  signInWithEmailAndPassword(auth, email, password)
+    .then(() => {
+      alert("Login Success 🔥");
+    })
+    .catch((error) => {
+      alert(error.message);
+    });
+}
+
+window.register = register;
+window.login = login;
 </script>
 </body>
 </html>
